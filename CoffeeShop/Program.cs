@@ -15,6 +15,7 @@ namespace CoffeeShop
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IBeanVarietyRepository, BeanVarietyRepository>();
+            builder.Services.AddTransient<ICoffeeRepository, CoffeeRepository>();
             builder.Services.AddCors();
 
             var app = builder.Build();
@@ -40,7 +41,6 @@ namespace CoffeeShop
                 options.AllowAnyMethod();
                 options.AllowAnyHeader();
             });
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
